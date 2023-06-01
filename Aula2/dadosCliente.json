@@ -1,0 +1,9 @@
+{
+    "nome": "Diogo Magliano",
+    "endereco": "Rua N casa 33, cep 77777",
+    "idade": 38,
+    "carros": [
+        "celta",
+        "fusca"
+    ]
+}

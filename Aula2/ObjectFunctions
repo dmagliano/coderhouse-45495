@@ -1,0 +1,9 @@
+let impostos = {
+    imposto1: 2341,
+    imposto2: 341,
+    imposto3: 4611,
+    imposto4: 111
+};
+
+let partChaveValor = Object.entries(impostos);
+console.log(partChaveValor);

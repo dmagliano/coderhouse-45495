@@ -1,0 +1,14 @@
+{
+  "name": "dependencias",
+  "version": "0.0.1",
+  "description": "Exemplo de inicialiação de um projeto com npm",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Diogo",
+  "license": "ISC",
+  "dependencies": {
+    "moment": "^2.29.4"
+  }
+}
