@@ -1,3 +1,14 @@
-  <div>
-    <h1>Olá {{nome}}! Que bom que você está aqui!</h1>
-  </div>
+<div>
+  <h1>Seja bem vindo, {{nome}}!</h1>
+
+  {{#if admin}}
+    <h2>Item List</h2>
+    <ul>
+      {{#each items}}
+        <li>{{nome}} - ${{preco}}</li>
+      {{/each}}
+    </ul>
+  {{else}}
+    <p>You don't have admin privileges to view the item list.</p>
+  {{/if}}
+</div>
