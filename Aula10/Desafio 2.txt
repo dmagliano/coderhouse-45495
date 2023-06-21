@@ -1,0 +1,13 @@
+- Configurar o projeto para trabalhar com handlebars e Websockets
+
+- Configurar o templateEngine handlebars
+- Instalar o servidor socket.io nele.
+
+- Criar uma visualização/layout home.handlebars get '/'
+    -Contem uma lista de todos produtos adicionados até agora (product.json)
+    -Segunda view realTimeProducs.handlebars -> exibida no caminho get '/realTimeProducs'
+
+- Ao criar um produto, ou excluir um produto. A lista deve ser atualizada imediatamente.
+    -Função que cria/guarda ou deleta produto -> chamada para o websocket com uma nova mensgem contendo os produtos.
+
+- Para criar ou excluir um produto, criem um formulário simples na view /realTimeProducs (realTimeProducs.handlebars)
