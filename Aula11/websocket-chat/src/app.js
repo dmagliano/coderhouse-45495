@@ -14,5 +14,6 @@ const viewFolder = 'views';
 app.engine('handlebars', handlebars.engine());
 app.set('views', viewFolder);
 app.set('view engine', 'handlebars');
-app.use(express.static(__dirname + '/public'));
+app.use('/static', express.static(__dirname + '/public'));
+app.use('/js', express.static(__dirname + '/public/js'));
 app.use('/', viewsRouter);
