@@ -17,3 +17,13 @@ app.set('view engine', 'handlebars');
 app.use('/static', express.static(__dirname + '/public'));
 app.use('/js', express.static(__dirname + '/public/js'));
 app.use('/', viewsRouter);
+
+let messages = [];
+io.on('connection', (socket) => {
+    console.log("Usuário conectado");
+
+    socket.on('message', (data) => {
+        messages.push(data);
+        io.emit('messageLogs', messages);
+    })
+});
