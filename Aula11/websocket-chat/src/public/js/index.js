@@ -10,18 +10,6 @@ Swal.fire({
         return !value && 'Você precisa digitar um nome para se identificar no chat!'
     },
     allowOutsideClick: false,
-    preConfirm: (value) => {
-        socket.broadcast.emit('message', (value) => {
-     Swal.fire({
-        con: 'success',
-        title: 'New User',
-        text: data,
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 3000
-        })
-    })}
 }).then((result) => {
     user = result.value;
     socket.emit('message', { user: user, message: 'entrou no chat' });
