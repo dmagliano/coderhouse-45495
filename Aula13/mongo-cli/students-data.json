@@ -1,0 +1,106 @@
+[
+  {
+    "name": "Olivia",
+    "surname": "Jones",
+    "age": 22,
+    "course": "English Literature",
+    "address": "321 Pine St, City",
+    "gender": "Female"
+  },
+  {
+    "name": "William",
+    "surname": "Brown",
+    "age": 20,
+    "course": "History",
+    "address": "654 Cedar St, City",
+    "gender": "Male"
+  },
+  {
+    "name": "Sophia",
+    "surname": "Davis",
+    "age": 19,
+    "course": "Chemistry",
+    "address": "987 Maple St, City",
+    "gender": "Female"
+  },
+  {
+    "name": "James",
+    "surname": "Miller",
+    "age": 21,
+    "course": "Biology",
+    "address": "159 Oak St, City",
+    "gender": "Male"
+  },
+  {
+    "name": "Ava",
+    "surname": "Wilson",
+    "age": 22,
+    "course": "Psychology",
+    "address": "753 Elm St, City",
+    "gender": "Female"
+  },
+  {
+    "name": "Benjamin",
+    "surname": "Taylor",
+    "age": 20,
+    "course": "Sociology",
+    "address": "852 Cedar St, City",
+    "gender": "Male"
+  },
+  {
+    "name": "Mia",
+    "surname": "Anderson",
+    "age": 19,
+    "course": "Political Science",
+    "address": "456 Pine St, City",
+    "gender": "Female"
+  },
+  {
+    "name": "Daniel",
+    "surname": "Moore",
+    "age": 21,
+    "course": "Economics",
+    "address": "753 Oak St, City",
+    "gender": "Male"
+  },
+  {
+    "name": "Isabella",
+    "surname": "Martin",
+    "age": 22,
+    "course": "Business Administration",
+    "address": "321 Elm St, City",
+    "gender": "Female"
+  },
+  {
+    "name": "Ethan",
+    "surname": "Harris",
+    "age": 20,
+    "course": "Marketing",
+    "address": "159 Maple St, City",
+    "gender": "Male"
+  },
+  {
+    "name": "Emily",
+    "surname": "Thompson",
+    "age": 19,
+    "course": "Communications",
+    "address": "987 Oak St, City",
+    "gender": "Female"
+  },
+  {
+    "name": "Alexander",
+    "surname": "Clark",
+    "age": 21,
+    "course": "Graphic Design",
+    "address": "852 Elm St, City",
+    "gender": "Male"
+  },
+  {
+    "name": "Charlotte",
+    "surname": "Lewis",
+    "age": 22,
+    "course": "Fine Arts",
+    "address": "456 Maple St, City",
+    "gender": "Female"
+  }
+]
