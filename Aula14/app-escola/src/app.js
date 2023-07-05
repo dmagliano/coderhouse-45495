@@ -1,5 +1,5 @@
 import express, { urlencoded } from 'express';
-import userRouter from './routes/users.router.js';
+import alunosRouter from './routes/alunos.router.js';
 import mongoose from 'mongoose';
 
 const app = express();
@@ -20,4 +20,4 @@ mongoose.connect(mongoAtlasUrl)
     }
 });
 
-app.use('/api/users', userRouter);
+app.use('/api/alunos', alunosRouter);
