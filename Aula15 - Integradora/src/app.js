@@ -1,8 +1,16 @@
 import express, { urlencoded }  from "express";
+import handlebars from "express-handlebars";
 import pixRouter from "./routes/pix.routes.js";
+import viewsRouter from "./routes/view.routes.js";
 import mongoose from "mongoose";
 
 const app = express();
+const viewFolder = 'views';
+
+app.engine('handlebars', handlebars.engine());
+app.set('views', viewFolder);
+app.set('view engine', 'handlebars');
+app.use('/', viewsRouter);
 
 app.use(urlencoded({extended: true}));
 app.use(express.json());
@@ -22,3 +30,4 @@ mongoose.connect(dbUrl)
 });
 
 app.use('/api/pix' , pixRouter);
+app.use('/' , viewsRouter);
