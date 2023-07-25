@@ -1,7 +1,8 @@
 import mongoose from "mongoose";
 import pedidoModel from "./models/pedido.model.js";
 
-const mongoAtlasUrl = 'mongodb+srv://diogomagliano:VqJ8vbXbJaqjat8F@cluster0.ppgtl4o.mongodb.net/pizzaria?retryWrites=true&w=majority'
+const collection = 'pizzaria'
+const mongoAtlasUrl = 'mongodb+srv://diogomagliano:VqJ8vbXbJaqjat8F@cluster0.ppgtl4o.mongodb.net/' + collection + '?retryWrites=true&w=majority'
 
 const enviroment = async() => {
 
