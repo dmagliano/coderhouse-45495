@@ -1,3 +1,4 @@
 **/node_modules
 *.DS_Store
 Aula14/temp.txt
+.DS_Store
