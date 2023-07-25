@@ -2,6 +2,7 @@ import {Router} from 'express';
 import {UserModel} from '../models/user.model.js';
 import cookieParser from 'cookie-parser';
 import session from "express-session";
+import { isValidPassword } from '../utils.js';
 
 const router = Router();
 
@@ -21,7 +22,7 @@ router.post('/', async (req, res) => {
         if(user == null) {
             res.status(404)
         }
-        if(user.password !== password) {
+        if(!isValidPassword(user, password)) {
             res.status(403).json({erro: "Senha incorreta"});
         } else {
         req.session.user = email;
