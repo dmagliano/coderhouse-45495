@@ -5,6 +5,8 @@ import MongoStore from "connect-mongo";
 import mongoose from "mongoose";
 import loginRouter from "./routes/login.router.js";
 import userRouter from "./routes/user.router.js";
+import passport from 'passport';
+import initializePassport from "./config/passport.config.js";
 
 const PORT = 8080;
 const app = express();
@@ -20,6 +22,7 @@ mongoose.connect(mongoUrl)
     }
 });
 
+initializePassport();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());

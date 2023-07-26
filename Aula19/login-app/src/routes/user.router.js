@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { UserModel } from '../models/user.model.js';
-import { createHash } from '../utils.js';
+import passport from 'passport';
 
 const router = Router();
 
@@ -13,23 +13,12 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.post('/', async (req, res) => {
-    const { nome, sobrenome, email, idade, password } = req.body;
-    let novoUsuario = {
-        nome: nome,
-        sobrenome: sobrenome,
-        email: email,
-        idade: idade,
-        password: createHash(password)
-    }
-    try {
-        let result = await UserModel.create(novoUsuario);
-        res.status(201).json(result);
-    } catch (error) {
-        console.log("Cannot create user with mongoose: " + error);
-        res.status(400).json({ erro: error.message });
-    }
+router.post('/', passport.authenticate('register', {failureRedirect:'/failregister'}) ,async (req, res) => {
+    res.send('Usuario criado com sucesso');
+});
 
+router.get('/failregister', (req, res) => {
+    res.status(400).send({erro: 'Falha ao criar usuario'});
 });
 
 export default router;

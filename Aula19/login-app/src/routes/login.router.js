@@ -4,6 +4,7 @@ import cookieParser from 'cookie-parser';
 import session from "express-session";
 import { createHash } from '../utils.js';
 import { isValidPassword } from '../utils.js';
+import passport from 'passport';
 
 const router = Router();
 
@@ -33,23 +34,16 @@ router.post('/recovery', async (req, res) => {
     }
 });
 
-router.post('/', async (req, res) => {
-    let { email, password } = req.body;
-    try {
-        const user = await UserModel.findOne({ email: email });
-        if (user == null) {
-            res.status(404)
-        }
-        if (!isValidPassword(user, password)) {
-            res.status(403).json({ erro: "Senha incorreta" });
-        } else {
-            req.session.user = email;
-            req.session.logged = true;
-            res.send('Login realizado com sucesso');
-        }
-    } catch (error) {
-        res.status(400).json({ erro: error.message });
+router.post('/', passport.authenticate('login',{failureRedirect:'/api/login/faillogin'}) ,async (req, res) => {
+    console.log("Login realizado com sucesso");
+    if(!req.user){
+        return res.status(400).send('Usuario ou senha invalidos');
     }
+    res.send('Login realizado com sucesso');
+});
+
+router.get('/faillogin', (req, res) => {
+    res.status(404).send('Falha no login');
 });
 
 export default router;
