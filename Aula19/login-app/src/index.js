@@ -1,8 +1,10 @@
 import express, { urlencoded } from "express";
+import handlebars from "express-handlebars";
 import session from "express-session";
 import cookieParser from 'cookie-parser';
 import MongoStore from "connect-mongo";
 import mongoose from "mongoose";
+import viewRouter from "./routes/views.router.js";
 import loginRouter from "./routes/login.router.js";
 import userRouter from "./routes/user.router.js";
 import passport from 'passport';
@@ -21,6 +23,10 @@ mongoose.connect(mongoUrl)
     process.exit();
     }
 });
+
+app.engine('handlebars', handlebars.engine());
+app.set('views', './views');
+app.set('view engine', 'handlebars');
 
 initializePassport();
 app.use(express.urlencoded({ extended: true }));
@@ -41,5 +47,6 @@ app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`);
 });
 
+app.use('/', viewRouter)
 app.use('/api/login', loginRouter);
 app.use('/api/user', userRouter);

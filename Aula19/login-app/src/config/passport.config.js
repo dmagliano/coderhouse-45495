@@ -1,47 +1,35 @@
 import passport from 'passport';
-import local from 'passport-local'
+import GitHubStrategy from 'passport-github2';
 import { UserModel } from '../models/user.model.js';
-import { createHash, isValidPassword } from '../utils.js';
-
-const LocalStrategy = local.Strategy;
 
 const initializePassport = () => {
-    passport.use('register', new LocalStrategy(
-        { passReqToCallback: true, usernameField: 'email' }, async (req, username, password, done) => {
-            const { nome, sobrenome, idade, email } = req.body;
-            try {
-                let user = await UserModel.findOne({ email: username });
-                if (user) {
-                    return done(null, false, { message: 'Email já cadastrado' });
-                }
-                let novoUsuario = {
-                    nome: nome,
-                    sobrenome: sobrenome,
-                    email: email,
-                    idade: idade,
-                    password: createHash(password)
-                }
-                let result = await UserModel.create(novoUsuario);
 
-                return done(null, result);
-            } catch (error) {
-                return done(`Erro ao obter o usuario ${error}`);
+    passport.use('github', new GitHubStrategy({
+        clientID: 'Iv1.0a937f47224d66e3',
+        clientSecret: '216d4f25e882d262bc8b2ca18a065462c247dfeb',
+        callbackURL: 'http://localhost:8080/api/login/githubcallback'
+    }, async (accessToken, refreshToken, profile, done) => {
+        try {
+            console.log(profile);
+            let user = await UserModel.findOne({ email: ( profile._json.email ? profile._json.email : profile._json.login ) });
+            if (!user) {
+                let newUser = {
+                    nome: profile._json.name,
+                    email: ( profile._json.email ? profile._json.email : profile._json.login ),
+                    sobrenome: '',
+                    idade: 99,
+                    password: '',
+                }
+                let result = await UserModel.create(newUser);
+                console.log('result criacao: ' + result);
+                done(null, result);
+            }
+            else {
+                done(null, user);
             }
         }
-    ))
-
-    passport.use('login', new LocalStrategy({usernameField: 'email'}, async (username, password, done) => {
-        try {
-            const user = await UserModel.findOne({ email: username })
-            if (!user) {
-                return done(null, false);
-            }
-            if (!isValidPassword(user, password)) {
-                return done(null, false);
-            }
-            return done(null, user);
-        } catch(error) {
-            return done(error);
+        catch (error) {
+            done(error);
         }
     }));
 

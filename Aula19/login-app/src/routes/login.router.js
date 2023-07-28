@@ -46,4 +46,13 @@ router.get('/faillogin', (req, res) => {
     res.status(404).send('Falha no login');
 });
 
+router.get('/github', passport.authenticate('github', { scope: ['user:email'] }), async (req, res) => {});
+
+router.get('/githubcallback', passport.authenticate('github', { failureRedirect: '/api/login/faillogin' }), async (req, res) => {
+
+    console.log(req.query.user);
+    //res.session.user = user;
+    res.redirect('/');
+});
+
 export default router;
