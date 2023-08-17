@@ -1,8 +1,8 @@
-import { ToyModel } from "../models/toys.models.js";
+import { ToyModel } from "../models/toy-model.js";
 
 class ToyService {
 
-    static async createToy(toy) {
+    async createToy(toy) {
         try {
             return await ToyModel.create(toy);
         } catch (error) {
@@ -10,7 +10,7 @@ class ToyService {
         }
     }
 
-    static async getToys() {
+    async getToys() {
         try {
             return await ToyModel.find();
         } catch (error) {
@@ -18,7 +18,7 @@ class ToyService {
         }
     }
 
-    static async updateToy(id, toy) {
+    async updateToy(id, toy) {
         try {
             let result = await ToyModel.updateOne({_id: id}, toy);
             res.send(result);
@@ -29,4 +29,4 @@ class ToyService {
 
 }
 
-export default ToyService;
+export default new ToyService;

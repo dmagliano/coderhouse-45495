@@ -1,7 +1,8 @@
 import express from "express";
 import mongoose from "mongoose";
-import userRouter from "./routers/users.router.js";
-import toysRouter from "./routers/toys.router.js";
+import UserRouter from "./routers/user-router.js";
+import ToysRouter from "./routers/toy-router.js";
+import OrderRouter from "./routers/order-router.js";
 
 const app = express();
 app.use(express.json());
@@ -18,8 +19,9 @@ mongoose.connect(mongoUrl)
     }
 });
 
-app.use('/api/users', userRouter);
-app.use('/api/toys', toysRouter);
+app.use('/api/users', UserRouter);
+app.use('/api/toys', ToysRouter);
+app.use('/api/orders', OrderRouter);
 
 const PORT = 8080;
 app.listen(PORT, () => {
