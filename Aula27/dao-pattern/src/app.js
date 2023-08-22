@@ -1,25 +1,25 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const contactDao = require('./dao/mongo-contact-dao.js');
-//const contactDao = require('./dao/memory-contact-dao.js')
+const config = require('./config.js');
+const daoFactory = require('./dao/dao-factory.js');
 
-const mongoUrl = 'mongodb+srv://diogomagliano:VqJ8vbXbJaqjat8F@cluster0.ppgtl4o.mongodb.net/dao-contact?retryWrites=true&w=majority';
-
-mongoose.connect(mongoUrl)
-.then(() => { console.log("Connected to mongoDB")})
-.catch((error) => {
-    if (error) {
-    console.log("Cannot connect to mongoDB: " + error)
-    process.exit();
-    }
-});
+console.log(config)
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+let promisse 
+
+try {
+  contactDao = daoFactory.createContactDao();
+} catch (error) {
+  console.log(error);
+};
+
+
 app.get('/contacts', async (req, res) => {
-  const contacts = await contactDao.get();
+  const contacts = contactDao.get();
   res.json(contacts);
 });
 
