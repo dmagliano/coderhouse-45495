@@ -9,16 +9,10 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-let promisse 
-
-try {
-  contactDao = daoFactory.createContactDao();
-} catch (error) {
-  console.log(error);
-};
 
 
 app.get('/contacts', async (req, res) => {
+  const contactDao = await daoFactory.createContactDao();
   const contacts = contactDao.get();
   res.json(contacts);
 });
