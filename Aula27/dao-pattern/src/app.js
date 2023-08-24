@@ -10,9 +10,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
+let contactDao;
+
+(async () => {
+  contactDao = await daoFactory.createContactDao();
+})()
 
 app.get('/contacts', async (req, res) => {
-  const contactDao = await daoFactory.createContactDao();
   const contacts = contactDao.get();
   res.json(contacts);
 });

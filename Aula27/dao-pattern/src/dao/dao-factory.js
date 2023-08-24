@@ -8,8 +8,8 @@ class ContactDao {
 
         switch (process.env.PERSISTENCE) {
             case 'MONGO':
+                console.log("Using mongoDB persistence");
                 const mongoUrl = 'mongodb+srv://diogomagliano:VqJ8vbXbJaqjat8F@cluster0.ppgtl4o.mongodb.net/dao-contact?retryWrites=true&w=majority';
-
                 const connection = await mongoose.connect(mongoUrl)
                     .then(() => { console.log("Connected to mongoDB") })
                     .catch((error) => {
@@ -23,14 +23,11 @@ class ContactDao {
                 ContactDao = mongoContactDao;
                 break;
             case 'MEMORY':
+                console.log("Using memory persistence");
                 const { default: memoryContactDao } = await import('./memory-contact-dao.js');
                 ContactDao = memoryContactDao;
                 break;
         }
-
-        console.log("ContactDao: ");
-        console.log(ContactDao);
-
         return ContactDao;
     };
 
