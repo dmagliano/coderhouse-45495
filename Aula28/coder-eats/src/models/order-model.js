@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const orderCollection = orders;
+const orderCollection = 'orders';
 const orderSchema = new mongoose.Schema({    
     number: Number,
     business: {
@@ -11,6 +11,7 @@ const orderSchema = new mongoose.Schema({
         type:mongoose.SchemaTypes.ObjectId,
         ref: 'users'
     },
+    status: String,
     products: [],
     totalPrice: Number,
 
