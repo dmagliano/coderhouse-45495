@@ -8,9 +8,9 @@ const PORT = 8080;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const TWILIO_ACCOUNT_SID = 'AC7e12a298d0367d2377c19abc5e0cf1ce';
-const TWILIO_AUTH_TOKEN = 'b03fb0ef741920513952a1dcd7a0fabe';
-const TWILIO_SMS_NUMBER = '+18145644940';
+const TWILIO_ACCOUNT_SID = '<TWILIO_ACCOUNT_SID>';
+const TWILIO_AUTH_TOKEN = '<TWILIO_AUTH_TOKEN>';
+const TWILIO_SMS_NUMBER = '<TWILIO_SMS_NUMBER>';
 
 const transport = nodemailer.createTransport({
     service: 'gmail',
