@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
-    "nodemailer": "^6.9.4"
+    "nodemailer": "^6.9.4",
+    "twilio": "^4.16.0"
   }
 }
