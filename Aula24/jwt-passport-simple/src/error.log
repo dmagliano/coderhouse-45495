@@ -1,0 +1,12 @@
+{"level":"error","message":"Authentication failed for user: diogo"}
+{"level":"error","message":"Authentication failed for user: paulo"}
+{"level":"error","message":"Authentication failed for user: carlos"}
+{"level":"http","message":"POST /login - 2023-09-14T23:21:19.371Z"}
+{"level":"error","message":"Authentication failed for user: carlos"}
+{"level":"http","message":"POST /login - 2023-09-14T23:21:25.736Z"}
+{"level":"info","message":"User diogo logged in"}
+{"level":"info","message":"User diogo logged in"}
+{"level":"error","message":"Authentication failed for user: diogo"}
+{"level":"warn","message":"Invalid login attempt for user: diogo"}
+{"level":"error","message":"Authentication failed for user: diogo"}
+{"level":"info","message":"User diogo logged in"}

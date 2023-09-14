@@ -2,18 +2,21 @@ import express from 'express';
 import passport from 'passport';
 import passportJWT from 'passport-jwt';
 import jwt from 'jsonwebtoken';
+import { addLogger } from './logger.js';
 
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(addLogger);
 
 const PORT = process.env.PORT || 3000;
 
 // Sample user data (replace with your own authentication mechanism)
 const users = [
   { id: 1, username: 'user1', password: '123456' },
-  { id: 2, username: 'user2', password: '654321' }
+  { id: 2, username: 'user2', password: '654321' },
+  { id: 3, username: 'diogo', password: '123456' }
 ];
 
 // Secret key for JWT
@@ -52,10 +55,11 @@ app.post('/login', (req, res) => {
 
   if (user) {
     const token = jwt.sign({ username: user.username }, secretKey);
-    console.log('User authenticated: ' + username);
+    req.logger.info(`User ${username} logged in`);
     res.json({ token });
   } else {
-    console.log('Authentication failed for user: ' + username);
+    req.logger.warn(`Invalid login attempt for user: ${username}`);
+    req.logger.error(`Authentication failed for user: ${username}`);
     res.status(401).json({ message: 'Authentication failed' });
   }
 });
