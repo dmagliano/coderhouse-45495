@@ -1,4 +1,7 @@
 import express from "express";
+import userRouter from "../router/user-router.js";
+import dataRouter from "../router/data-router.js";
+import registerRouter from "../router/register-router.js";
 
 const app = express();
 
@@ -11,6 +14,6 @@ app.listen(SERVER_PORT, () => {
     console.log(`Server running on port ${SERVER_PORT}`);
 });
 
-app.get("/", (req, res) => {
-    res.send("Hello World!");
-});
+app.use("/api/users", userRouter);
+app.use("/api/data", dataRouter);
+app.use("/api/register", registerRouter);
