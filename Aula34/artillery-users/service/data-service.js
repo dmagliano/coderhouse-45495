@@ -4,7 +4,7 @@ export const getUsers = () => {
 
     return {
         name: faker.person.firstName(),
-        last_name: faker.person.lastName(),
+        lastname: faker.person.lastName(),
         email: faker.internet.exampleEmail(),
         password: "123456test"
     }
