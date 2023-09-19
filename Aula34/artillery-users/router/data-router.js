@@ -1,9 +1,8 @@
 import { Router } from "express";
+import { getFakeData } from "../controller/data-controller.js";
 
 const router = Router();
 
-router.get("/", (req, res) => {
-    res.send("Fake data router");
-});
+router.get("/", getFakeData);
 
 export default router;
