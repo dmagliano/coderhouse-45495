@@ -7,7 +7,7 @@ import registerRouter from "../router/register-router.js";
 
 const app = express();
 
-const mongoUrl = 'mongodb+srv://diogomagliano:VqJ8vbXbJaqjat8F@cluster0.ppgtl4o.mongodb.net/artilery-test?retryWrites=true&w=majority';
+const mongoUrl = process.env.MONGO_URL
 const connection = await mongoose.connect(mongoUrl)
   .then(() => { console.log("Connected to mongoDB") })
   .catch((error) => {
