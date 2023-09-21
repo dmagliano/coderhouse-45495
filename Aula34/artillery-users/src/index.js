@@ -6,7 +6,7 @@ import registerRouter from "../router/register-router.js";
 
 
 const app = express();
-
+const SERVER_PORT = process.env.SERVERPORT || 8080;
 const mongoUrl = process.env.MONGO_URL
 const connection = await mongoose.connect(mongoUrl)
   .then(() => { console.log("Connected to mongoDB") })
@@ -17,7 +17,6 @@ const connection = await mongoose.connect(mongoUrl)
     }
   });
 
-const SERVER_PORT = 8080;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
