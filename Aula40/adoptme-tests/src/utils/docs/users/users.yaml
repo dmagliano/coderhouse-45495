@@ -1,0 +1,50 @@
+paths:
+  /api/users/:
+    get:
+      summary: Returns a hello message.
+      responses:
+        200:
+          description: Retorna os usuarios cadastrados
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+        400:
+          description: Bad request
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+      tags:
+        - Users
+
+  /api/register/:
+    post:
+      summary: Registra um novo usuario.
+      responses:
+        200:
+          description: Usuario cadastrado com sucesso
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+        400:
+          description: Bad request
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+      requestBody:
+        description: Optional description in *Markdown*
+        required: true
+        example:
+          name: Diogo
+          email: email@email.com
+          password: 123456
+
+      tags:
+        - Register
