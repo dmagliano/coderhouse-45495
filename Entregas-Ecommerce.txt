@@ -1,0 +1,20 @@
+Classes com ECMAScript e ECMAScript avançado
+Gestão de arquivos
+Servidor com express
+Aula 9 Pre Entrega 1: Será desenvolvido um servidor que contém os endpoints e serviços necessários para gerenciar produtos e carrinhos de compras no e-commerce.
+WebSockets + Handlebars (opcional)
+Pratica integradora
+Aula 17 Pre entrega 2: Você terá que entregar o projeto que vem montando, alterando a persistência no banco de dados, além de adicionar alguns novos endpoints ao seu ecommerce
+Implementação de login
+Refatorar para nosso login (JWT)
+Reestruturação do nosso servidor (Camadas, padrões)
+Aula 30 Pre entrega 3: As funções do usuário, autorizações e lógica de compra serão aprofundadas (Roles por usuario, autorização com JWT)
+(Aplicar práticas como padrões de design, mailing, variáveis de ambiente. etc)
+Mocking e gestão de erros (Mocking - faker.js para gerar dados para a aplicação)
+Implementação de Logger
+Pratica integradora
+Módulo de teste para o projeto final
+Aula 46 Pre entrega 4: Endpoints de usuarios, roles, e implantação no Railway.app
+Entrega do projeto final: Back-end de um aplicativo de e-commerce
+
+//Relevar pedidos de views, considerar somente API rest e endpoints.
