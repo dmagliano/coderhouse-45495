@@ -1,0 +1,24 @@
+Casos de Uso:
+- Cadastro de Usuario:
+Criar um usuario do zero, e obter as informações deles via GET.
+(Já deixar criado outros usuarios, com roles específicas, ADMIN, USER etc.)
+
+- Testar um endpoint com autorização, com roles diferentes.
+Fazer uma chamada para um endpoint com autorização, testando as respostas com roles diferentes.
+
+- Obter um token JWT para um usario, e demonstrar uma falha por dados incorretos no token.
+Fazer um login e fazer uma tentativa de login com a senha errada.
+
+- Cadastrar um produto
+(Já deixar cadastrados alguns produtos, com e sem estoque)
+
+- Criar um carrinho de compras
+Adicionar novos produtos a um novo carrinho, e testar os erros para com ou sem estoque.
+
+- Gerar um "Ticket" de compra, com o resumo, dos valores, carrinho, itens e email do usuario.
+
+Mostrar os objetos de request (Quais informações você passa no body ou no path da requisição)
+Mostrar algumas respostas (Exemplo de cadastro, exemplo de produto, carrinho etc)
+Mostrar a resposta do Ticket.
+
+Se houver logger - Mostrar o exemplo das mensagens que são registradas.
